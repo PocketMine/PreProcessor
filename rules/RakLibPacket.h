@@ -1,5 +1,7 @@
 use raklib\Binary;
 
+#define EncapsulatedPacket::getPacketFromPool() EncapsulatedPacket::$nextPacket >= count(EncapsulatedPacket::$packetPool) ? (EncapsulatedPacket::$packetPool[EncapsulatedPacket::$nextPacket++] = new EncapsulatedPacket) : EncapsulatedPacket::$packetPool[EncapsulatedPacket::$nextPacket++]
+
 #define $this->getLong() Binary::readLong($this->get(8))
 #define $this->putLong(data) $this->buffer .= Binary::writeLong(data)
 
