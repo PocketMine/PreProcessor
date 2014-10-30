@@ -34,7 +34,7 @@ function fastOptimize(array &$tree){
 	foreach($tree as $index => &$token){
 		if(is_array($token)){
 			if($token[0] === T_STRING and ($before = getBefore($tree, $index)) !== "\\"){
-				if(isset($constantOptimize[strtoupper($token[1])])){
+				if(isset($constantOptimize[strtoupper($token[1])]) and $before !== "::" and $before !== "->"){
 					$token[1] = "\\" . $token[1]; //Constant fetch optimization
 				}elseif(function_exists($token[1]) and $before !== "::" and $before !== "->" and $before !== "function" and getAfter($tree, $index) === "("){
 					$token[1] = "\\" . $token[1]; //Function call optimization
