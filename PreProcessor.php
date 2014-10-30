@@ -1,5 +1,7 @@
 <?php
 
+define("THIS_PATH", realpath(dirname(__FILE__)));
+
 $opts = getopt("", ["path:"]);
 
 if(!isset($opts["path"])){
@@ -14,7 +16,7 @@ function process($code){
 		1 => ["pipe", "w"],
 		2 => ["pipe", "pipe", "a"]
 	];
-	$process = proc_open("cpp -traditional-cpp -nostdinc -include processed/rules/PocketMine.h -I ./processed -E -C -P -D FULL - -o -", $descriptor, $pipes);
+	$process = proc_open("cpp -traditional-cpp -nostdinc -include '".THIS_PATH."/processed/rules/PocketMine.h' -I ./processed -E -C -P -D FULL - -o -", $descriptor, $pipes);
 	fwrite($pipes[0], $code);
 	fclose($pipes[0]);
 	$out = stream_get_contents($pipes[1]);
@@ -28,14 +30,14 @@ function process($code){
 	return substr($out, strpos($out, "<?php"));
 }
 
-@mkdir("processed/rules/", 0777, true);
+@mkdir(THIS_PATH."/processed/rules/", 0777, true);
 
-foreach(glob("rules/*.h") as $file){
+foreach(glob(THIS_PATH."/rules/*.h") as $file){
 	if(substr($file, -2) !== ".h"){
 		continue;
 	}
 	$code = str_replace(["::", "->", '$'], ["__STATIC_CALL__", "__METHOD_CALL__", "__VARIABLE_DOLLAR__"], file_get_contents($file));
-	file_put_contents("processed/$file", $code);
+	file_put_contents(sTHIS_PATH."/processed/$file", $code);
 }
 
 foreach(new RecursiveIteratorIterator(new RecursiveDirectoryIterator($path)) as $path => $f){
