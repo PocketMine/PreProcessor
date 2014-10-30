@@ -16,7 +16,7 @@ function process($code){
 		1 => ["pipe", "w"],
 		2 => ["pipe", "pipe", "a"]
 	];
-	$process = proc_open("cpp -traditional-cpp -nostdinc -I ./processed -include '".THIS_PATH."/processed/rules/PocketMine.h' -E -C -P -D FULL - -o -", $descriptor, $pipes);
+	$process = proc_open("cpp -traditional-cpp -nostdinc -include '".THIS_PATH."/processed/rules/PocketMine.h' -I '".THIS_PATH."/processed' -E -C -P -D FULL - -o -", $descriptor, $pipes);
 	fwrite($pipes[0], $code);
 	fclose($pipes[0]);
 	$out = stream_get_contents($pipes[1]);
