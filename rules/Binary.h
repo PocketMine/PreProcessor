@@ -26,7 +26,7 @@
 #define Binary::writeLInt(data) pack("V", data)
 
 #define Binary::readFloat(data) (ENDIANNESS === 0 ? unpack("f", data)[1] : unpack("f", strrev(data))[1])
-#define Binary::writeFloat(data) (ENDIANNESS === 0 ? pack("f", data) : strrev(pack("f", data)))
+#define Binary::writeFloat(data) (ENDIANNESS === 0 ? pack("f", data) : strrev(pack("f", data))
 
 #define Binary::readLFloat(data) (ENDIANNESS === 0 ? unpack("f", strrev(data))[1] : unpack("f", data)[1])
 #define Binary::writeLFloat(data) (ENDIANNESS === 0 ? strrev(pack("f", data)) : pack("f", data))
