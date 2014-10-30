@@ -26,13 +26,13 @@
 #define Binary::writeLInt(data) pack("V", data)
 
 #define Binary::readFloat(data) (ENDIANNESS === 0 ? unpack("f", data)[1] : unpack("f", strrev(data))[1])
-#define Binary::writeFloat(data) (ENDIANNESS === 0 ? pack("f", data) : strrev(pack("f", data))
+#define Binary::writeFloat(data) (ENDIANNESS === 0 ? pack("f", data) : strrev(pack("f", data)))
 
 #define Binary::readLFloat(data) (ENDIANNESS === 0 ? unpack("f", strrev(data))[1] : unpack("f", data)[1])
 #define Binary::writeLFloat(data) (ENDIANNESS === 0 ? strrev(pack("f", data)) : pack("f", data))
 
 #define Binary::readDouble(data) (ENDIANNESS === 0 ? unpack("d", data)[1] : unpack("d", strrev(data))[1])
-#define Binary::writeDouble(data) (ENDIANNESS === 0 ? pack("d", data) : strrev(pack("d", data))
+#define Binary::writeDouble(data) (ENDIANNESS === 0 ? pack("d", data) : strrev(pack("d", data)))
 
 #define Binary::readLDouble(data) (ENDIANNESS === 0 ? unpack("d", strrev(data))[1] : unpack("d", data)[1])
 #define Binary::writeLDouble(data) (ENDIANNESS === 0 ? strrev(pack("d", data)) : pack("d", data))
