@@ -37,7 +37,7 @@ foreach(glob(THIS_PATH."/rules/*.h") as $file){
 		continue;
 	}
 	$code = str_replace(["::", "->", '$'], ["__STATIC_CALL__", "__METHOD_CALL__", "__VARIABLE_DOLLAR__"], file_get_contents($file));
-	file_put_contents(sTHIS_PATH."/processed/$file", $code);
+	file_put_contents(THIS_PATH."/processed/$file", $code);
 }
 
 foreach(new RecursiveIteratorIterator(new RecursiveDirectoryIterator($path)) as $path => $f){
