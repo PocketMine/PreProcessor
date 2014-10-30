@@ -3,7 +3,7 @@
 #define Binary::writeTriad(data) substr(pack("N", data), 1)
 
 #define Binary::readLTriad(data) unpack("V", data . "\x00")[1]
-#define Binary::writeLTriad(data) substr(pack("N", data), 0, -1)
+#define Binary::writeLTriad(data) substr(pack("V", data), 0, -1)
 
 #define Binary::readBool(data) ord(data{0}) === 0 ? false : true
 #define Binary::writeBool(data) chr(data === true ? 1 : 0)
