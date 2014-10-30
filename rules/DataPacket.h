@@ -16,8 +16,8 @@ use pocketmine\utils\Binary;
 #define $this->getTriad() Binary::readTriad($this->get(3))
 #define $this->putTriad(data) $this->buffer .= Binary::writeTriad(data)
 
-#define $this->getLTriad() Binary::readTriad($this->get(3))
-#define $this->putLTriad(data) $this->buffer .= Binary::writeTriad(data)
+#define $this->getLTriad() Binary::readLTriad($this->get(3))
+#define $this->putLTriad(data) $this->buffer .= Binary::writeLTriad(data)
 
 #define $this->getByte() ord($this->get(1))
 #define $this->putByte(data) $this->buffer .= chr(data)
