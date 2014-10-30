@@ -2,6 +2,9 @@
 #define Binary::readTriad(data) unpack("N", "\x00" . data)[1]
 #define Binary::writeTriad(data) substr(pack("N", data), 1)
 
+#define Binary::readLTriad(data) unpack("V", $str . "\x00")[1]
+#define Binary::writeLTriad(data) substr(pack("N", $value), 0, -1)
+
 #define Binary::readBool(data) ord(data{0}) === 0 ? false : true
 #define Binary::writeBool(data) chr(data === true ? 1 : 0)
 
