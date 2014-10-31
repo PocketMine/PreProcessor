@@ -1,7 +1,5 @@
 
 #include <rules/Binary.h>
-#include <rules/Vector3.h>
-#include <rules/AxisAlignedBB.h>
 
 #define COMPILE 1
 

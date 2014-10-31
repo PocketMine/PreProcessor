@@ -1,3 +1,0 @@
-
-#define Vector3::createVector(posX, posY, posZ) Vector3::$nextVector >= count(Vector3::$vectorList) ? (Vector3::$vectorList[Vector3::$nextVector++] = new Vector3(posX, posY, posZ)) : Vector3::$vectorList[Vector3::$nextVector++]->setComponents(posX, posY, posZ)
-#define Vector3::cloneVector(pos) Vector3::$nextVector >= count(Vector3::$vectorList) ? (Vector3::$vectorList[Vector3::$nextVector++] = new Vector3(pos ->x, pos ->y, pos ->z)) : Vector3::$vectorList[Vector3::$nextVector++]->setComponents(pos ->x, pos ->y, pos ->z)
