@@ -1,5 +1,9 @@
 use pocketmine\utils\Binary;
 
+#include <rules/BinaryIO.h>
+
+#define $nbt->put(data) $nbt->buffer .= data
+
 #define $nbt->getLong() $nbt->endianness === 1 ? Binary::readLong($nbt->get(8)) : Binary::readLLong($nbt->get(8))
 #define $nbt->putLong(data) $nbt->buffer .= $nbt->endianness === 1 ? Binary::writeLong(data) : Binary::writeLLong(data)
 
