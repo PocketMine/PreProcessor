@@ -4,6 +4,7 @@
 #define Binary::readSignedLShort(data) unpack("v", data)[1] << 48 >> 48
 #define Binary::readInt(data) unpack("N", data)[1] << 32 >> 32
 #define Binary::readLInt(data) unpack("V", data)[1] << 32 >> 32
+#define Binary::writeLong(data) pack("NN", data >> 32, data & 0xFFFFFFFF)
 #else
 #ifdef COMPILE_32
 #define Binary::readSignedShort(data) unpack("n", data)[1] << 16 >> 16
